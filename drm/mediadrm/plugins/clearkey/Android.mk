@@ -35,8 +35,11 @@ LOCAL_C_INCLUDES := \
     frameworks/av/drm/mediadrm/plugins/clearkey \
     frameworks/av/include \
     frameworks/native/include \
+    external/optee-clearkey-cdmi/host
 
 LOCAL_MODULE := libdrmclearkeyplugin
+
+LOCAL_CFLAGS +=  -DUSE_AES_TA #-std=c99
 
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_MODULE_RELATIVE_PATH := mediadrm
@@ -46,6 +49,7 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libstagefright_foundation \
     libutils \
+    libtee_aes
 
 LOCAL_STATIC_LIBRARIES := \
     libjsmn \
